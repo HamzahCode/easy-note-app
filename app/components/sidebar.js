@@ -19,6 +19,7 @@ const Sidebar = () => {
     setsearchedcontent,
     showMessage,
     setShowMessage,
+    settoeditor,
   } = useContext(AppContext);
   const [delid, setdelid] = useState();
 
@@ -45,7 +46,7 @@ const Sidebar = () => {
     }
   }, [searchnote]);
   return (
-    <div className="flex items-center overflow-hidden">
+    <div className="flex items-center">
       {showMessage && (
         <div
           className="fixed inset-0 bg-black/50 z-40 "
@@ -88,21 +89,24 @@ const Sidebar = () => {
                     <div
                       onClick={() => {
                         setisid(note.id);
+                        settoeditor(true);
                       }}
-                      className="flex items-center cursor-pointer transition-all duration-500 ease-in-out group-hover:-translate-x-4 w-[340px] h-full"
+                      className="flex items-center cursor-pointer transition-all duration-500 ease-in-out group-hover:-translate-x-4 w-[440px] h-full"
                     >
                       <h1 className="text-2xl truncate font-bold">
                         {note.title}
                       </h1>
                     </div>
-                    <div className="h-[45px] mr-5 border-r border-r-black"></div>
-                    <div
-                      className="ml-2 p-1 hover:bg-white rounded-md"
-                      onClick={() => {
-                        handledelenote(note.id);
-                      }}
-                    >
-                      <DeleteOutlineOutlinedIcon className="text-red-600 cursor-pointer" />
+                    <div className=" flex items-center">
+                      <div className="h-[45px] ml-2 border-r border-r-black"></div>
+                      <div
+                        className="ml-2 p-1 hover:bg-white rounded-md "
+                        onClick={() => {
+                          handledelenote(note.id);
+                        }}
+                      >
+                        <DeleteOutlineOutlinedIcon className="text-red-600 cursor-pointer" />
+                      </div>
                     </div>
                   </div>
                 );
@@ -119,21 +123,24 @@ const Sidebar = () => {
                     <div
                       onClick={() => {
                         setisid(note.id);
+                        settoeditor(true);
                       }}
-                      className="flex items-center cursor-pointer transition-all duration-500 ease-in-out group-hover:-translate-x-4 w-[340px] h-full"
+                      className="flex items-center cursor-pointer transition-all duration-500 ease-in-out group-hover:-translate-x-4 w-[440px] h-full"
                     >
                       <h1 className="text-2xl truncate font-bold">
                         {note.title}
                       </h1>
                     </div>
-                    <div className="h-[45px] mr-5 border-r border-r-black"></div>
-                    <div
-                      className="mr-2 p-[2px] hover:bg-white rounded-md "
-                      onClick={() => {
-                        handledelenote(note.id);
-                      }}
-                    >
-                      <DeleteOutlineOutlinedIcon className="text-red-600 cursor-pointer" />
+                    <div className=" flex items-center">
+                      <div className="h-[45px] ml-2 border-r border-r-black"></div>
+                      <div
+                        className="ml-2 p-1 hover:bg-white rounded-md "
+                        onClick={() => {
+                          handledelenote(note.id);
+                        }}
+                      >
+                        <DeleteOutlineOutlinedIcon className="text-red-600 cursor-pointer" />
+                      </div>
                     </div>
                   </div>
                 );
@@ -144,12 +151,12 @@ const Sidebar = () => {
       </div>
       <div
         onClick={handlearrow}
-        className="w-5 h-screen bg-[#201f1f] text-white flex justify-center items-center cursor-pointer hover:bg-[#201f1f6b]"
+        className="w-4 h-screen bg-[#d8d8d8] text-white flex justify-center items-center cursor-pointer hover:bg-[#ffffff]"
       >
         {isExpanded ? (
-          <KeyboardArrowRightIcon fontSize="15px" />
+          <KeyboardArrowRightIcon fontSize="20px" className="text-black" />
         ) : (
-          <KeyboardArrowLeftIcon fontSize="15px" />
+          <KeyboardArrowLeftIcon fontSize="20px" className="text-black" />
         )}
       </div>
     </div>

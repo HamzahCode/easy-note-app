@@ -63,7 +63,9 @@ export default function Message({ msgname, getidDel, titleinp, descinp }) {
           ? "سيتم حذف الملاحظة، هل أنت متأكد؟"
           : msgname === "Save"
           ? "لم يتم حفظ الملاحظة الحالية، هل ترغب بحفظها؟"
-          : "هل تريد اضافة هذه الملاحظة؟"}
+          : msgname === "Add"
+          ? "هل تريد اضافة هذه الملاحظة؟"
+          : null}
       </div>
       <div className="flex justify-between items-end w-full font-bold text-xl container">
         <button
@@ -74,7 +76,9 @@ export default function Message({ msgname, getidDel, titleinp, descinp }) {
                 ? handledelenote()
                 : msgname === "Save"
                 ? handleditnote()
-                : handleaddnote();
+                : msgname === "Add"
+                ? handleaddnote()
+                : null;
             }
           }}
         >

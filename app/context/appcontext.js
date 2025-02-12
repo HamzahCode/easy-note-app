@@ -15,6 +15,7 @@ export function AppProvider({ children }) {
   const [addedDone, setaddedDone] = useState(false);
   const [deleteDone, setdeleteDone] = useState(false);
   const [savedDone, setsavedDone] = useState(false);
+  const [toeditor, settoeditor] = useState(false);
 
   return (
     <AppContext.Provider
@@ -41,6 +42,8 @@ export function AppProvider({ children }) {
         setdeleteDone,
         savedDone,
         setsavedDone,
+        toeditor,
+        settoeditor,
       }}
     >
       {children}

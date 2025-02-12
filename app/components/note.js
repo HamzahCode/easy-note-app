@@ -67,6 +67,21 @@ export default function Note() {
     });
     setnotes(editing);
   }
+  function handleSaveNote() {
+    if (isid) {
+      handleditnote(isid);
+    } else {
+      handleaddnote();
+    }
+    setsearchnote("");
+    setnewtitle("");
+    setnewdesc("");
+    setisid(null);
+    setissaved(true);
+    setsavedDone(true);
+    setnewnotesaved(true);
+  }
+
   return (
     <div className="flex flex-col p-5 text-xl z-[3] h-screen">
       {showMessage && issaved === false ? (
@@ -78,15 +93,7 @@ export default function Note() {
         <div className="flex justify-between items-center m-3 ">
           <button
             className="bg-[#e7b34c] rounded-sm w-32 text-black ml-3 hover:bg-[#fcdb99]"
-            onClick={() => {
-              isid ? handleditnote(isid) : handleaddnote();
-              setsearchnote("");
-              setnewtitle("");
-              setnewdesc("");
-              setisid(null);
-              setissaved(true);
-              setsavedDone(true);
-            }}
+            onClick={handleSaveNote}
           >
             حفظ الملاحظة
           </button>

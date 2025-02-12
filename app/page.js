@@ -12,6 +12,8 @@ export default function Home() {
     addedDone,
     deleteDone,
     savedDone,
+    toeditor,
+    settoeditor,
     setaddedDone,
     setdeleteDone,
     setsavedDone,
@@ -22,9 +24,10 @@ export default function Home() {
       setaddedDone(false);
       setdeleteDone(false);
       setsavedDone(false);
+      settoeditor(false);
     }, 3000);
     return () => clearTimeout(timer);
-  }, [addedDone, deleteDone, savedDone]);
+  }, [addedDone, deleteDone, savedDone, toeditor]);
 
   return (
     <div className={``}>
@@ -35,19 +38,21 @@ export default function Home() {
           <Notification deleted={deleteDone} />
         ) : savedDone ? (
           <Notification saved={savedDone} />
+        ) : toeditor ? (
+          <Notification editor={toeditor} />
         ) : (
           <Notification added={false} deleted={false} saved={false} />
         )}
       </div>
-      <div className="z-50">
+      <div className="">
         <Header />
       </div>
 
       <div className="flex">
         <div
           className={` ${
-            isExpanded ? "w-2/5" : "w-4"
-          } transition-all duration-500 ease-in-out`}
+            isExpanded ? "w-full sm:w-2/5" : "w-4"
+          } transition-all duration-500 ease-in-out absolute`}
         >
           <Sidebar />
         </div>
